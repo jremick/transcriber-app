@@ -1,0 +1,77 @@
+name: Best-effort macOS CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-hygiene-build:
+    name: Source hygiene and build validation
+    runs-on: macos-26
+    timeout-minutes: 45
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: "1"
+      HOMEBREW_NO_INSTALL_CLEANUP: "1"
+      TRANSCRIBER_RUN_MODEL_FIXTURE_TESTS: "0"
+      TRANSCRIBER_RUN_FLUIDAUDIO_FIXTURE_TESTS: "0"
+      TRANSCRIBER_RUN_LOCAL_ASR_FIXTURE_TESTS: "0"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Install XcodeGen
+        run: |
+          set -euo pipefail
+          if ! command -v xcodegen >/dev/null 2>&1; then
+            brew install xcodegen
+          fi
+
+      - name: Show tool versions
+        run: |
+          set -euo pipefail
+          sw_vers
+          xcode-select -p
+          xcodebuild -version
+          xcodegen --version
+
+      - name: Generate Xcode project
+        run: |
+          set -euo pipefail
+          xcodegen generate
+
+      - name: Verify SwiftPM lockfile
+        run: |
+          set -euo pipefail
+          scripts/sync-package-lock.sh --verify
+
+      - name: Run tests
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -scheme Transcriber \
+            -derivedDataPath build \
+            -destination 'platform=macOS' \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            test
+
+      - name: Run static analysis
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -scheme Transcriber \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            analyze

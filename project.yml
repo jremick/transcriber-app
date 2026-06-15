@@ -1,0 +1,63 @@
+name: Transcriber
+options:
+  bundleIdPrefix: dev.local
+  deploymentTarget:
+    macOS: "26.0"
+  createIntermediateGroups: true
+  postGenCommand: ./scripts/sync-package-lock.sh --restore
+
+packages:
+  FluidAudio:
+    url: https://github.com/FluidInference/FluidAudio
+    from: 0.15.2
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "26.0"
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_HARDENED_RUNTIME: NO
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    SWIFT_STRICT_CONCURRENCY: complete
+    DEAD_CODE_STRIPPING: YES
+
+targets:
+  Transcriber:
+    type: application
+    platform: macOS
+    sources:
+      - Transcriber
+    dependencies:
+      - package: FluidAudio
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.local.transcriber
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: Transcriber/Resources/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+
+  TranscriberTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - TranscriberTests
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: Transcriber
+
+schemes:
+  Transcriber:
+    build:
+      targets:
+        Transcriber: all
+        TranscriberTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - TranscriberTests
