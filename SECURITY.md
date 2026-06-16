@@ -6,8 +6,8 @@ API keys, debug audio dumps, local SwiftData stores, or diagnostic logs in publi
 
 ## Supported Versions
 
-Only the current `main` branch and the latest prerelease tag are supported for security
-review during alpha.
+Only the current `main` branch is supported for security review during alpha. When a
+prerelease tag is published, the latest prerelease tag will be supported as well.
 
 ## Reporting
 

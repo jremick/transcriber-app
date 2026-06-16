@@ -7,6 +7,10 @@ Use this for `v0.1.0-alpha.1` and nearby source-available/public-alpha releases.
 honest GitHub alpha that preserves the current state without implying a notarized
 distributable app.
 
+Current live state as of 2026-06-16: no GitHub tag or release has been published. Treat
+`v0.1.0-alpha.1` as the next prepared prerelease target until the tag and GitHub prerelease
+exist.
+
 ## Release Boundary
 
 - Release type: source-available public alpha.
@@ -70,7 +74,7 @@ git push origin v0.1.0-alpha.1
 
 - Title: `Transcriber v0.1.0-alpha.1`.
 - Mark as a prerelease.
-- Use the `CHANGELOG.md` `v0.1.0-alpha.1` section as the release body.
+- Use the `CHANGELOG.md` candidate `v0.1.0-alpha.1` section as the release body.
 - Include a clear first paragraph: this is source-available alpha, not a notarized
   user-installable binary.
 - Link the relevant docs: privacy model, project backlog, dependency management, and release
