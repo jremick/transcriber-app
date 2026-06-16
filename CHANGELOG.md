@@ -2,12 +2,9 @@
 
 ## Unreleased
 
-- Added an alpha release checklist for source-available/public-alpha release preparation.
-- Added candidate GitHub release notes for `v0.1.0-alpha.1`.
+- No unreleased changes.
 
-## Candidate v0.1.0-alpha.1 release notes - 2026-06-14
-
-No GitHub tag or release has been published for this candidate yet.
+## v0.1.0-alpha.1 - 2026-06-16
 
 This is an honest source-available public alpha for the native macOS Transcriber app. It is
 intended to preserve the current working state for continued real-meeting validation, not
@@ -26,6 +23,8 @@ to claim a notarized distributable binary.
   conservative "possible meeting" path for browsers.
 - Privacy documentation, dependency locking notes, release checklist, and release
   signing/notarization notes are included.
+- GitHub metadata, README screenshots, CI, security reporting guidance, source-available
+  licensing, and prerelease documentation are aligned for public inspection.
 
 ### Verification Evidence
 

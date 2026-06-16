@@ -53,8 +53,8 @@ plus local build on macOS 26; downloadable app bundles are development-signed or
 signed unless a separate Developer ID/notarization pass is completed. Real Google Meet/Zoom
 validation, live OpenAI ASR validation, and notarized distribution remain tracked in the
 release checklist and roadmap.
-No GitHub release or prerelease tag is published yet; `v0.1.0-alpha.1` is the next prepared
-source-available alpha release target.
+The current prerelease is `v0.1.0-alpha.1`; it publishes source archives only, not a
+user-installable app binary.
 For a reproducible local alpha package, run `scripts/build-alpha-release.sh` and follow
 the validation steps in [docs/ALPHA_RELEASE_CHECKLIST.md](docs/ALPHA_RELEASE_CHECKLIST.md).
 
