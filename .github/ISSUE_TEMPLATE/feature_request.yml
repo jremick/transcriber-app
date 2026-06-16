@@ -1,0 +1,42 @@
+name: Feature request
+description: Suggest a focused improvement that fits the current alpha scope.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user problem or validation gap would this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the smallest useful change.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
+  - type: dropdown
+    id: priority_area
+    attributes:
+      label: Priority area
+      options:
+        - Real-meeting validation
+        - Local-first privacy
+        - Capture reliability
+        - Transcription/diarization quality
+        - Notes quality
+        - Export/history
+        - Distribution/signing
+        - Documentation
+        - Other
+    validations:
+      required: true

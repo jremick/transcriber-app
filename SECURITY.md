@@ -11,6 +11,13 @@ prerelease tag is published, the latest prerelease tag will be supported as well
 
 ## Reporting
 
-Use GitHub private vulnerability reporting if it is available for this repository. If that
-is not available, open a minimal public issue that describes the affected area without
-including sensitive data, and ask for a private reporting path.
+Use GitHub private vulnerability reporting:
+
+```text
+https://github.com/jremick/transcriber-app/security/advisories/new
+```
+
+Do not open public issues for suspected vulnerabilities, exposed secrets, meeting-content
+leaks, authorization bypasses, or debug-artifact disclosure. If GitHub does not show the
+private reporting form, open a minimal public issue that describes only the affected area
+and asks for a private reporting path.

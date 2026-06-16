@@ -1,0 +1,69 @@
+name: Bug report
+description: Report a reproducible Transcriber bug without private meeting content.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include private meeting content, API keys, debug audio, SwiftData stores, local logs, or screenshots with personal data. For security issues, use private vulnerability reporting instead.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the shortest reproduction path you can share safely.
+      placeholder: |
+        1. Open Transcriber
+        2. Start...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include hardware, macOS version, Xcode version if building from source, and whether this was a source build or release archive.
+      placeholder: |
+        - Mac:
+        - macOS:
+        - Xcode:
+        - Transcriber commit/tag:
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Capture
+        - Transcription
+        - Diarization
+        - Notes
+        - Meeting detection
+        - Persistence/export
+        - Settings/permissions
+        - Build/test/docs
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: sanitized_evidence
+    attributes:
+      label: Sanitized evidence
+      description: Add redacted screenshots or logs only if they contain no meeting content, keys, local stores, or personal data.
+    validations:
+      required: false

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/jremick/transcriber-app/security/advisories/new
+    about: Report suspected vulnerabilities privately.
+  - name: Current roadmap
+    url: https://github.com/jremick/transcriber-app/blob/main/ROADMAP.md
+    about: Check known limitations and planned work before opening a feature request.

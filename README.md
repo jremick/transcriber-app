@@ -1,5 +1,11 @@
 # Transcriber
 
+[![Best-effort macOS CI](https://github.com/jremick/transcriber-app/actions/workflows/ci.yml/badge.svg)](https://github.com/jremick/transcriber-app/actions/workflows/ci.yml)
+[![Status: public alpha](https://img.shields.io/badge/status-public_alpha-yellow.svg)](https://github.com/jremick/transcriber-app/releases/tag/v0.1.0-alpha.1)
+[![License: source-available](https://img.shields.io/badge/license-source--available-lightgrey.svg)](LICENSE)
+![macOS 26+](https://img.shields.io/badge/macOS-26%2B-blue.svg)
+![Swift 6](https://img.shields.io/badge/Swift-6-orange.svg)
+
 Native macOS meeting transcription with **on-device speech recognition**, **local speaker
 diarization**, **automatic meeting detection**, and **live AI key notes** — in a two-column
 Liquid Glass UI built for macOS 26 (Tahoe).
@@ -133,6 +139,15 @@ Key invariants:
 See [docs/PRIVACY.md](docs/PRIVACY.md) for the exact local persistence, optional OpenAI,
 Keychain, permissions, and debug-artifact model.
 
+## Documentation
+
+- [Architecture](docs/ARCHITECTURE.md) - app structure, audio pipeline, diarization, notes, and persistence.
+- [Privacy model](docs/PRIVACY.md) - local persistence, optional OpenAI paths, Keychain, permissions, and debug artifacts.
+- [Dependency management](docs/DEPENDENCIES.md) - SwiftPM lockfile workflow.
+- [Release checklist](docs/ALPHA_RELEASE_CHECKLIST.md) - source-available alpha release boundary and verification.
+- [Release signing and notarization](docs/RELEASE_SIGNING_NOTARIZATION.md) - current binary distribution gaps.
+- [Roadmap](ROADMAP.md) - validation, polish, distribution, and scale backlog.
+
 ## Development hooks
 
 `defaults write dev.local.transcriber <key> -bool YES`:
@@ -155,6 +170,12 @@ Speaker 1 / Speaker 2.
 ## Roadmap
 
 See [ROADMAP.md](ROADMAP.md).
+
+## Community and support
+
+- [Issues](https://github.com/jremick/transcriber-app/issues) - public bugs and concrete feature requests.
+- [Contributing](CONTRIBUTING.md) - current contribution stance and local verification path.
+- [Security policy](SECURITY.md) - private vulnerability reporting guidance.
 
 ## License
 
